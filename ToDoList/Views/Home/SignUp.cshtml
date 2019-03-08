@@ -1,0 +1,46 @@
+﻿@using ToDoList.Models
+@model  AccountSignUp
+@{
+    ViewBag.Title = "ToDo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container text-center" id="oF">
+
+    @using (Html.BeginForm("SignUp", "Home", FormMethod.Post))
+    {
+        <h2>
+            <a href="" style="color: white;">
+                Sign up
+            </a>
+        </h2>
+        <br />
+        <p>
+            @Html.LabelFor(l => l.Login)
+            <br />
+            @Html.EditorFor(l => l.Login)
+            @Html.ValidationMessageFor(l => l.Login)
+        </p>
+        <p>
+            @Html.LabelFor(p => p.Password)
+            <br />
+            @Html.EditorFor(p => p.Password)
+            @Html.ValidationMessageFor(p => p.Password)
+        </p>
+        <p>
+            @Html.LabelFor(pc => pc.PasswordConfirm)
+            <br />
+            @Html.EditorFor(pc => pc.PasswordConfirm)
+            @Html.ValidationMessageFor(pc => pc.PasswordConfirm)
+        </p>
+        <p>
+            <input type="submit" class="btn btn-group-lg btn-danger" value="Create"/>
+        </p>
+        <p>
+            <a class="Reg" href="/Home/Index">Sign in</a>
+        </p>
+    }
+</div>
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+
+

@@ -1,0 +1,7 @@
+﻿@model ToDoList.Models.AccountTask
+@{ 
+    var list = Model.selectCategoryItems;
+}
+<span style="color: firebrick;">
+    @Html.DropDownListFor(cl => cl.selectCategoryItems, list)
+</span>

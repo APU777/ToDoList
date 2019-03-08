@@ -1,0 +1,36 @@
+﻿@using ToDoList.Models
+@using ToDoList.Concrete
+@model  AccountTask
+@{
+    ViewBag.Title = "CreateTask";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container text-center" id="oF">
+
+    @using (Html.BeginForm("CreateTask", "Account", FormMethod.Post))
+    {
+        @Html.ValidationSummary()
+        <br />
+        <p>
+            @Html.LabelFor(n => n.Name)
+            @Html.EditorFor(n => n.Name)
+        </p>
+        <p>
+            @Html.LabelFor(o => o.Objective)
+            @Html.TextAreaFor(o => o.Objective)
+        </p>
+        <p>
+            @Html.Action("TaskPriority", "Account")
+        </p>
+        <p>
+            @Html.Action("TaskCategory", "Account")
+        </p>
+        <p>
+            @Html.LabelFor(sd => sd.StartDate)
+            @Html.Calendar(sd => sd.StartDate)
+            @Html.LabelFor(ed => ed.EndDate)
+            @Html.Calendar(ed => ed.EndDate)
+        </p>
+        <input type="submit" class="btn btn-group-lg btn-success" />
+    }
+</div>

@@ -1,0 +1,7 @@
+﻿@model ToDoList.Models.AccountTask
+@{
+    var list = Model.selectPriorityItems;
+}
+    <span style="color: brown;">
+        @Html.DropDownListFor(pl => pl.selectPriorityItems, list)
+    </span>

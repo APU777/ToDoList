@@ -1,0 +1,42 @@
+﻿@using ToDoList.Models
+@model  AccountSignIn
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="container text-center" id="oF">
+
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <h2>
+            <a href="" style="color: white;">
+                Sign in
+            </a>
+        </h2>
+        <br />
+        <hr />
+        @Html.ValidationSummary()
+        <p>
+            @Html.LabelFor(l => l.Login)
+            <br />
+            @Html.EditorFor(l => l.Login)
+        </p>
+        <p>
+            @Html.LabelFor(p => p.Password)
+            <br />
+            @Html.EditorFor(p => p.Password)
+        </p>
+        <p>
+            <button type="submit" class="btn btn-group-lg btn-danger">Sign in</button>
+        </p>
+        <p>
+            @Html.CheckBox("Remember")
+            <label for="Remember" class=" ">Remember me</label>
+        </p>
+        <p>
+            <a class="Reg" href="/Home/SignUp">Sign up</a>
+        </p>
+    }
+</div>
+<script src="~/Scripts/jquery-3.3.1.js"></script>

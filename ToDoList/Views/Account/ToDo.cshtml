@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "ToDo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*<a class="navbar-fixed-bottom btn-danger btn btn-block btn-group-lg" style="font-size: 25px;">Exit</a>*@
+@Html.ActionLink("Exit", "Index",
+         new { controller = "Home" },
+         new { @class = "exitBTN navbar-fixed-bottom btn-danger btn btn-block btn-group-lg" })
+<div class="container-fluid Sp">
+    <div class="row">
+        <div class="col-md-3 ">
+            <div class="thumbnail">
+                <div class="displayed">
+                    <a class="displayed" href="/Account/CreateTask">
+                        <img src="~/Img/plus.png" alt="&plus;" class="img-circle turnAround" />
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3  ">
+            <div class="thumbnail">
+
+            </div>
+        </div> <div class="col-md-3  ">
+            <div class="thumbnail">
+
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="thumbnail">
+
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
