@@ -131,6 +131,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Concrete\Cookie.cs" />
+    <Compile Include="Concrete\Crypto\CryptoProvider.cs" />
     <Compile Include="Concrete\ToDoCreateTask.cs" />
     <Compile Include="Concrete\ToDoSignIn.cs" />
     <Compile Include="Models\Account.cs" />

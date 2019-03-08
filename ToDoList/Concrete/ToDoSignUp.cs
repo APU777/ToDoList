@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using ToDoList.Concrete.Crypto;
 using ToDoList.Models;
 
 namespace ToDoList.Concrete
@@ -12,7 +13,7 @@ namespace ToDoList.Concrete
         {
             using (TDList list = new TDList())
             {
-                Account account = new Account { Login = ASU.Login, Password = ASU.Password };
+                Account account = new Account { Login = ASU.Login, Password = CryptoProvider.GetMD5Hash(ASU.Password) };
                 list.Accounts.Add(account);
                 list.SaveChanges();
             }

@@ -16,11 +16,10 @@ namespace ToDoList.Models.ViewModels
         public string Objective { get; set; }
 
         [Required(ErrorMessage = "Start date is empty.")]
-        [DateAttribute]
+        [Date]
         public string StartDate { get; set; }
 
         [Required(ErrorMessage = "End date is empty.")]
-        [DateAttribute]
         public string EndDate { get; set; }
 
         public int selectCategoryItems { get; set; }

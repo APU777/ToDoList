@@ -46,6 +46,8 @@ namespace ToDoList.Controllers
 
         public ActionResult CreateTask()
         {
+//            HttpCookie httpCookie = Request.Cookies["name"];
+
             return View();
         }
 

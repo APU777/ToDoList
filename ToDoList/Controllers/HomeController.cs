@@ -12,6 +12,12 @@ namespace ToDoList.Controllers
     {
         public ActionResult Index()
         {
+            HttpCookie cookie = Response.Cookies["UserId"];
+            cookie.Expires = DateTime.Now.AddDays(-1);
+            Response.Cookies.Add(cookie);
+            cookie = Response.Cookies["UserSign"];
+            cookie.Expires = DateTime.Now.AddDays(-1);
+            Response.Cookies.Add(cookie);
             return View();
         }
 
@@ -21,13 +27,14 @@ namespace ToDoList.Controllers
         {
             if (ModelState.IsValid)
             {
-                ToDoSignIn TDSI = new ToDoSignIn();
-
+                ToDoSignIn TDSI = new ToDoSignIn(account);
                 if (!TDSI.Login(account))
                 {
                     ModelState.AddModelError("", "Password or Login is invalid ! ! !");
                     return View(account);
                 }
+                Cookie cookie = new Cookie();
+                cookie.UserCookie(Response, account.Login + account.Password, TDSI.UserId(account));
                 return RedirectToAction("ToDo", "Account");
             }
             return View(account);
