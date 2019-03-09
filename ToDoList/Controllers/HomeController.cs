@@ -54,6 +54,12 @@ namespace ToDoList.Controllers
 
         public ActionResult SignUp()
         {
+            HttpCookie cookie = Response.Cookies["UserId"];
+            cookie.Expires = DateTime.Now.AddDays(-1);
+            Response.Cookies.Add(cookie);
+            cookie = Response.Cookies["UserSign"];
+            cookie.Expires = DateTime.Now.AddDays(-1);
+            Response.Cookies.Add(cookie);
             return View();
         }
        

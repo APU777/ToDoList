@@ -16,12 +16,16 @@ namespace ToDoList.Controllers
         [HttpGet]
         public ActionResult ToDo()
         {
-            return View();
+            HttpCookie httpCookie = Request.Cookies["UserSign"];
+            if(httpCookie != null)
+                return View();
+            return RedirectToAction("Index", "Home");
         }
 
        
 
         [HttpPost]
+        [ChildActionOnly]
         public ActionResult CreateTask(AnalyzeTaskView task)
         {
             if (ModelState.IsValid)
@@ -44,11 +48,13 @@ namespace ToDoList.Controllers
             }
         }
 
+        [HttpGet]
         public ActionResult CreateTask()
         {
-//            HttpCookie httpCookie = Request.Cookies["name"];
-
-            return View();
+            HttpCookie httpCookie = Request.Cookies["UserSign"];
+            if (httpCookie != null)
+                return View();
+            return RedirectToAction("Index", "Home");
         }
 
         [ChildActionOnly]
