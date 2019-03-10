@@ -17,19 +17,22 @@ namespace ToDoList.Controllers
         public ActionResult ToDo()
         {
             HttpCookie httpCookie = Request.Cookies["UserSign"];
-            if(httpCookie != null)
+            if (httpCookie != null)
                 return View();
             return RedirectToAction("Index", "Home");
         }
 
-       
+
 
         [HttpPost]
-        [ChildActionOnly]
         public ActionResult CreateTask(AnalyzeTaskView task)
         {
             if (ModelState.IsValid)
+            {
+                ToDoCreateTask toDoCreateTask = new ToDoCreateTask();
+                toDoCreateTask.Record(Request, ref task);
                 return RedirectToAction("ToDo");
+            }
             else
             {
                 PriorityItems priorityItems = new PriorityItems();

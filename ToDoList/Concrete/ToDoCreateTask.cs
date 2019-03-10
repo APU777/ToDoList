@@ -9,7 +9,7 @@ namespace ToDoList.Concrete
 {
     public class ToDoCreateTask
     {
-        public void Record(HttpRequestBase Request, AnalyzeTaskView AT)
+        public void Record(HttpRequestBase Request, ref AnalyzeTaskView AT)
         {
             using (TDList list = new TDList())
             {
@@ -18,10 +18,14 @@ namespace ToDoList.Concrete
                 {
                     Name = AT.Name,
                     Objective = AT.Objective,
+                    StartDate = AT.StartDate,
+                    EndDate = AT.EndDate,
                     IdAccount = int.Parse(cookie.Value),
                     IdCategory = AT.selectCategoryItems,
                     IdPriority = AT.selectPriorityItems,
                 };
+                list.Tasks.Add(task);
+                list.SaveChanges();
             }
         }
     }
