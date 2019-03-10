@@ -18,11 +18,13 @@ namespace ToDoList.Controllers
         {
             HttpCookie httpCookie = Request.Cookies["UserSign"];
             if (httpCookie != null)
-                return View();
+            {
+                ExtractTasks extractTasks = new ExtractTasks();
+                IEnumerable<Task> tasks = extractTasks.GetTasks();
+                return View(tasks);
+            }
             return RedirectToAction("Index", "Home");
         }
-
-
 
         [HttpPost]
         public ActionResult CreateTask(AnalyzeTaskView task)

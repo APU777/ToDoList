@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<Task>
 @{
     ViewBag.Title = "ToDo";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -7,9 +7,9 @@
 @Html.ActionLink("Exit", "Index",
          new { controller = "Home" },
          new { @class = "exitBTN navbar-fixed-bottom btn-danger btn btn-block btn-group-lg" })
-<div class="container-fluid Sp">
+<div class="container-fluid">
     <div class="row">
-        <div class="col-md-3 ">
+        <div class="col-md-3 Sp">
             <div class="thumbnail">
                 <div class="displayed">
                     <a class="displayed" href="/Account/CreateTask">
@@ -18,22 +18,34 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-3  ">
-            <div class="thumbnail">
-
+        @foreach (var item in Model)
+        {
+            <div class="col-md-3 Sp">
+                <div class="thumbnail">
+                    <div class="container-fluid">
+                        <p>
+                            <h1 class="text-center">
+                                @(item.Name)
+                            </h1>
+                        </p>
+                        <div class="row">
+                            <div class="form-horizontal" style="display:inline;">
+                                <textarea readonly class="form-control txtArea">@(item.Objective)</textarea>
+                                <h3>Category: @(item.Category.Name)</h3>
+                                <h3>Priority: @(item.Priority.Name)</h3>
+                                <h3>Start: (@item.StartDate)</h3>
+                                <h3>End: @(item.EndDate)</h3>
+                            </div>
+                            @Html.ActionLink("Edit", "Index",
+                                    new { controller = "Home" },
+                                    new { @class = "fontSize btn btn-block btn-primary" })
+                            @Html.ActionLink("Delete", "Index",
+                                    new { controller = "Home" },
+                                    new { @class = "fontSize btn btn-block btn-danger" })
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div> <div class="col-md-3  ">
-            <div class="thumbnail">
-
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="thumbnail">
-
-            </div>
-        </div>
-
-
-
+        }
     </div>
 </div>

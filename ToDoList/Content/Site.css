@@ -1,6 +1,15 @@
 ﻿.exitBTN {
     font-size: 25px;
 }
+.fontSize{
+    font-size: 15px;
+}
+
+
+.txtArea {
+    resize: none;
+    font-size: 25px;
+}
 
 #oF {
     transform: translateY(+30%);
@@ -12,62 +21,72 @@
     font-weight: bold;
     font-size: large;
 }
-    #oF:hover{
-        color:coral;
+
+    #oF:hover {
+        color: coral;
         background-color: blueviolet;
         border-radius: 50%;
     }
 
-    input {
-        border: groove;
-        border-width: thick;
-    }
+input {
+    border: groove;
+    border-width: thick;
+}
 
 a:hover {
     text-decoration: none;
 }
+
 body {
     background-color: lightgray;
 }
+
 .Reg {
-    color:black;
+    color: black;
     font-weight: bold;
 }
-.Reg:hover {
-    background-color: black;
-    color: white;
-}
-.Sp {
-   margin-top: 50px;
-}
-.row div {
-    height: 350px;
- }
-.thumbnail:hover {
-        box-shadow: 0px 0px 70px gold;
+
+    .Reg:hover {
+        background-color: black;
+        color: white;
     }
+
+.Sp {
+    margin-top: 50px;
+}
+
+.row div {
+    height: 440px;
+}
+
+.thumbnail:hover {
+    box-shadow: 0px 0px 70px gold;
+}
 
 .displayed {
     height: 17em;
     display: flex;
     align-items: center;
     justify-content: center;
- }
-.turnAround{
+}
+
+.turnAround {
     position: absolute;
     width: 17em;
 }
-.turnAround:hover {
-    position: absolute;
-    width: 17em;
-     -webkit-animation: spin 3s linear infinite;
-    -moz-animation: spin 3s linear infinite;
-    animation: spin 3s linear infinite;
-}
+
+    .turnAround:hover {
+        position: absolute;
+        width: 17em;
+        -webkit-animation: spin 3s linear infinite;
+        -moz-animation: spin 3s linear infinite;
+        animation: spin 3s linear infinite;
+    }
+
 img:hover {
     box-shadow: 0px 30px 10px black;
 }
- 
+
 @-moz-keyframes spin {
     100% {
         -moz-transform: rotate(360deg);
