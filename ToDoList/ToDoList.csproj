@@ -133,6 +133,7 @@
   <ItemGroup>
     <Compile Include="Concrete\Cookie.cs" />
     <Compile Include="Concrete\Crypto\CryptoProvider.cs" />
+    <Compile Include="Concrete\DeleteTask.cs" />
     <Compile Include="Concrete\ExtractTasks.cs" />
     <Compile Include="Concrete\ToDoCreateTask.cs" />
     <Compile Include="Concrete\ToDoSignIn.cs" />

@@ -7,17 +7,27 @@ namespace ToDoList.Concrete
 {
     public class UpdateTask
     {
-        public void Edit(List<string> Fields)
+        private TDList list;
+        private List<string> Fields;
+        int Id = 0; 
+        public UpdateTask(List<string> _Fields)
         {
-            using (TDList list = new TDList())
-            {
-                Task task = list.Tasks.SingleOrDefault(t => t.Name.Equals(Fields[0]) && t.Objective.Equals(Fields[1]));
-                task.Name = Fields[2];
-                task.Objective = Fields[3];
-                task.IdPriority = Int32.Parse(Fields[4]);
-                task.IdCategory = Int32.Parse(Fields[5]);
-                list.SaveChanges();
-            }
+            list = new TDList();
+            Fields = _Fields;
+            Id = Int32.Parse(Fields[0]);
+        }
+        public void Edit()
+        {
+            var task = list.Tasks.Where(t => t.Id == Id).FirstOrDefault();
+            task.Name = Fields[1];
+            task.Objective = Fields[2];
+            task.IdPriority = Int32.Parse(Fields[3]);
+            task.IdCategory = Int32.Parse(Fields[4]);
+            list.SaveChanges();
+        }
+        public Task GetTask()
+        {
+            return list.Tasks.Where(t => t.Id == Id).FirstOrDefault();
         }
     }
 }

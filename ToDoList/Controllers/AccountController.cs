@@ -27,6 +27,14 @@ namespace ToDoList.Controllers
         }
 
         [HttpPost]
+        public ActionResult DeleteTask(string _TaskId)
+        {
+            DeleteTask deleteTask = new DeleteTask();
+            deleteTask.RemoveTask(Int32.Parse(_TaskId));
+            return Json(_TaskId);
+        }
+
+        [HttpPost]
         public ActionResult CreateTask(AnalyzeTaskView task)
         {
             if (ModelState.IsValid)
@@ -56,9 +64,17 @@ namespace ToDoList.Controllers
         [HttpPost]
         public ActionResult EditTask (List<string> _Fields)
         {
-            UpdateTask updateTask = new UpdateTask();
-            updateTask.Edit(_Fields);
-            return RedirectToAction("ToDo");
+            UpdateTask updateTask = new UpdateTask(_Fields);
+            updateTask.Edit();
+            var r = updateTask.GetTask();
+            var Result = new
+            {
+                rName = r.Name,
+                rObjective = r.Objective,
+                rCategory = r.Category.Name,
+                rPriority = r.Priority.Name
+            };
+            return Json(Result);//RedirectToAction("ToDo");
         }
 
         [HttpGet]

@@ -20,7 +20,7 @@
         </div>
         @foreach (var item in Model)
         {
-            <div class="col-md-3 Sp">
+            <div name="@(item.Id)" class="col-md-3 Sp">
                 <div class="thumbnail">
                     <div class="container-fluid">
                         <p>
@@ -41,9 +41,9 @@
                                     data-toggle="modal" data-target="#myModal">
                                 Edit
                             </button>
-                            @Html.ActionLink("Delete", "Index",
-                                    new { controller = "Home" },
-                                    new { @class = "fontSize btn btn-block btn-danger" })
+                            <button type="button" class="fontSize btn btn-block btn-warning">
+                                Delete
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -72,10 +72,11 @@
                 <select name="optionsCategory">
                     <option value="1">Study</option>
                     <option value="2">Work</option>
-                    <option value="3">Hobby</option>
-                    <option value="4">Holiday</option>
-                    <option value="5">Weekend</option>
-                    <option value="6">Free Time</option>
+                    <option value="3">Home</option>
+                    <option value="4">Hobby</option>
+                    <option value="5">Holiday</option>
+                    <option value="6">Weekend</option>
+                    <option value="7">Free Time</option>
                 </select>
             </div>
             <div class="modal-footer">
