@@ -10,6 +10,7 @@ namespace ToDoList
         public TDList()
             : base("name=TDList")
         {
+            Database.SetInitializer<TDList>(new SetDataPC<TDList>());
         }
 
         public virtual DbSet<Account> Accounts { get; set; }
