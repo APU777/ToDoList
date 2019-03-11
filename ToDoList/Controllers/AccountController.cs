@@ -53,6 +53,14 @@ namespace ToDoList.Controllers
             }
         }
 
+        [HttpPost]
+        public ActionResult EditTask (List<string> _Fields)
+        {
+            UpdateTask updateTask = new UpdateTask();
+            updateTask.Edit(_Fields);
+            return RedirectToAction("ToDo");
+        }
+
         [HttpGet]
         public ActionResult CreateTask()
         {

@@ -136,6 +136,7 @@
     <Compile Include="Concrete\ExtractTasks.cs" />
     <Compile Include="Concrete\ToDoCreateTask.cs" />
     <Compile Include="Concrete\ToDoSignIn.cs" />
+    <Compile Include="Concrete\UpdateTask.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\ViewModels\AccountTask.cs" />
     <Compile Include="Models\Category.cs" />
