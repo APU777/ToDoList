@@ -7,11 +7,11 @@ namespace ToDoList.Concrete
 {
     public class ExtractTasks
     {
-        public List<Task> GetTasks()
+        public List<Task> GetTasks(int userId)
         {
             using (TDList list = new TDList())
             {
-                return list.Tasks.Include("Priority").Include("Category").ToList();
+                return list.Tasks.Include("Priority").Include("Category").Where(i => i.IdAccount == userId).ToList();
             }
         }
     }

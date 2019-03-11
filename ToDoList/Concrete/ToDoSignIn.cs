@@ -17,14 +17,14 @@ namespace ToDoList.Concrete
             ASI = _asi;
             password = CryptoProvider.GetMD5Hash(ASI.Password);
         }
-        public bool Login(AccountSignIn ASI)
+        public bool Login()
         {
             return list.Accounts.Where
                         (
                             lp => lp.Login.Equals(ASI.Login) && lp.Password.Equals(password)
                         ).Any();
         }
-        public int UserId(AccountSignIn ASI)
+        public int UserId()
         {
             return list.Accounts.SingleOrDefault(lp => lp.Login.Equals(ASI.Login) && lp.Password.Equals(password)).Id;
         }

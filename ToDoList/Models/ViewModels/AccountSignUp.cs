@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using ToDoList.Models.ViewModels;
 
 namespace ToDoList.Models
 {
@@ -10,6 +11,7 @@ namespace ToDoList.Models
     {
         [Required(ErrorMessage = "There is no login")]
         [StringLength(100, MinimumLength = 8, ErrorMessage = "Login should be [8 -100] symbols.")]
+        [CheckLoginDB]
         public string Login { get; set; }
 
         [Required(ErrorMessage = "There is no password")]

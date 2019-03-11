@@ -28,13 +28,13 @@ namespace ToDoList.Controllers
             if (ModelState.IsValid)
             {
                 ToDoSignIn TDSI = new ToDoSignIn(account);
-                if (!TDSI.Login(account))
+                if (!TDSI.Login())
                 {
                     ModelState.AddModelError("", "Password or Login is invalid ! ! !");
                     return View(account);
                 }
                 Cookie cookie = new Cookie();
-                cookie.UserCookie(Response, account.Login + account.Password, TDSI.UserId(account));
+                cookie.UserCookie(Response, account.Login + account.Password, TDSI.UserId());
                 return RedirectToAction("ToDo", "Account");
             }
             return View(account);

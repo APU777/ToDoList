@@ -17,6 +17,8 @@ namespace ToDoList
             context.Categories.Add(new Category { Name = "Holiday" });
             context.Categories.Add(new Category { Name = "Weekend" });
             context.Categories.Add(new Category { Name = "Free Time" });
+
+            context.SaveChanges();
         }
     }
 }

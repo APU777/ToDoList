@@ -72,7 +72,7 @@ $(function () {
             dataType: "json",
             traditional: true,
             success: function (data) {
-                $("div[name=" + data + "]").empty();
+                $("div[name=" + data + "]").remove();
             }
         });
      });

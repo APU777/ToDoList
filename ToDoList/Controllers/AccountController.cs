@@ -19,8 +19,9 @@ namespace ToDoList.Controllers
             HttpCookie httpCookie = Request.Cookies["UserSign"];
             if (httpCookie != null)
             {
+                HttpCookie cookie = Request.Cookies["UserId"];
                 ExtractTasks extractTasks = new ExtractTasks();
-                IEnumerable<Task> tasks = extractTasks.GetTasks();
+                IEnumerable<Task> tasks = extractTasks.GetTasks(Int32.Parse(cookie.Value));
                 return View(tasks);
             }
             return RedirectToAction("Index", "Home");
